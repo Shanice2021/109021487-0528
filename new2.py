@@ -1,12 +1,13 @@
 import sys
 from PIL import Image, ImageFilter
+from glob import glob
 
-def convertImg(oldName, newName):
+def convertImg(imgName):
     try:
-        img = Image.open(oldName)
-        print("檔案格式: ") # 設定第二層問題
+        img = Image.open(imgName)
+        print("檔案格式: ") # 設定第二層問題(*.jpg)
         print("1. -toPNG")
-        print("2. -toJPEG")
+        print("2. -toJPEG") 
         print("3. -toTIFF")
         print("4. -toPDF")
         print("5. -toBMP")
@@ -14,19 +15,33 @@ def convertImg(oldName, newName):
         print("7. -toGIF")
         op1 = input("您想進行的操作: ") 
         if op1 == "1":
-            img.save(newName, 'png')
+            newImgFormat = "png"
+            for imgName in imList:
+                img.save(imgName, 'png')
         if op1 == "2":
-            img.save(newName, 'jpeg')
+            newImgFormat = "jpeg"
+            for imgName in imList:
+                img.save(imgName, 'jpeg')
         if op1 == "3":
-            img.save(newName, 'tiff')
+            newImgFormat = "tiff"
+            for imgName in imList:
+                img.save(imgName, 'tiff')
         if op1 == "4":
-            img.save(newName, 'pdf')
+            newImgFormat = "pdf"
+            for imgName in imList:
+                img.save(imgName, 'pdf')
         if op1 == "5":
-            img.save(newName, 'bmp')
+            newImgFormat = "bmp"
+            for imgName in imList:
+                img.save(imgName, 'bmp')
         if op1 == "6":
-            img.save(newName, 'eps')
+            newImgFormat = "eps"
+            for imgName in imList:
+                img.save(imgName, 'eps')
         if op1 == "7":
-            img.save(newName, 'gif')
+            newImgFormat = "gif"
+            for imgName in imList:
+                img.save(imgName, 'gif')
     except FileNotFoundError as fnfe:
         print(fnfe)
 
@@ -150,20 +165,21 @@ def applyFilter(imgName):
 
 def showMenu(): # 設定第一層問題
     print("====================")
-    print("1: 張單影像格式轉換")
-    print("2: 張單影像旋轉")
-    print("3: 張單影像等比例縮放")
-    print("4: 張單影像縮圖製作")
-    print("5: 張單影像濾鏡套用")
+    print("1: 批次處理目錄內同一種影像格式的所有影像進行格式轉換 ")
+    print("2: 批次處理目錄內同一種影像格式的所有影像進行影像旋轉")
+    print("3: 批次處理目錄內同一種影像格式的所有影像進行影像等比例縮放")
+    print("4: 批次處理目錄內同一種影像格式的所有影像進行影像縮圖製作")
+    print("5: 批次處理目錄內同一種影像格式的所有影像進行影像濾鏡套用")
     print("0: 結束")
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
+        imList = glob("*.[jJ][pP][gG]")
         while True: # 無限循環
             showMenu()
             op = input("選擇功能: ")
             if op == "1":
-                convertImg(sys.argv[1], sys.argv[2])
+                convertImg(sys.argv[1])
             elif op == "2":
                 rotateImg(sys.argv[1])
             elif op == "3":

@@ -16,31 +16,31 @@ def convertImg(imgName):
         if op1 == "1":
             dotIndex = imgName.index(".") # 尋找.jpg或.jepg的.
             newImgName = imgName[:dotIndex] + 'png' # 設定新檔名
-            convertImg.save(newImgName) # 儲存檔案
+            img.save(newImgName) # 儲存檔案
         if op1 == "2":
             dotIndex = imgName.index(".") # 尋找.jpg或.jepg的.
             newImgName = imgName[:dotIndex] + 'jpg' # 設定新檔名
-            convertImg.save(newImgName) # 儲存檔案
+            img.save(newImgName) # 儲存檔案
         if op1 == "3":
             dotIndex = imgName.index(".") # 尋找.jpg或.jepg的.
             newImgName = imgName[:dotIndex] + 'tiff' # 設定新檔名
-            convertImg.save(newImgName) # 儲存檔案
+            img.save(newImgName) # 儲存檔案
         if op1 == "4":
             dotIndex = imgName.index(".") # 尋找.jpg或.jepg的.
             newImgName = imgName[:dotIndex] + 'pdf' # 設定新檔名
-            convertImg.save(newImgName) # 儲存檔案
+            img.save(newImgName) # 儲存檔案
         if op1 == "5":
             dotIndex = imgName.index(".") # 尋找.jpg或.jepg的.
             newImgName = imgName[:dotIndex] + 'bmp' # 設定新檔名
-            convertImg.save(newImgName) # 儲存檔案
+            img.save(newImgName) # 儲存檔案
         if op1 == "6":
             dotIndex = imgName.index(".") # 尋找.jpg或.jepg的.
             newImgName = imgName[:dotIndex] + 'eps' # 設定新檔名
-            convertImg.save(newImgName) # 儲存檔案
+            img.save(newImgName) # 儲存檔案
         if op1 == "7":
             dotIndex = imgName.index(".") # 尋找.jpg或.jepg的.
             newImgName = imgName[:dotIndex] + 'gif' # 設定新檔名
-            convertImg.save(newImgName) # 儲存檔案
+            img.save(newImgName) # 儲存檔案
     except FileNotFoundError as fnfe:
         print(fnfe)
 
